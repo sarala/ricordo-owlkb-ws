@@ -1,4 +1,4 @@
-package dw.spring3.rest.client;
+package ricordo.owlkb.rest.client;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
@@ -13,8 +13,8 @@ import com.sun.syndication.feed.WireFeed;
 import com.sun.syndication.feed.atom.Feed;
 import com.sun.syndication.io.WireFeedOutput;
 
-import dw.spring3.rest.bean.Employee;
-import dw.spring3.rest.bean.EmployeeList;
+import ricordo.owlkb.rest.bean.Employee;
+import ricordo.owlkb.rest.bean.EmployeeList;
 
 public class EmployeeClient {
 

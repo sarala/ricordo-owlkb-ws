@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-	<context:component-scan base-package="dw.spring3.rest.controller" />
+	<context:component-scan base-package="ricordo.owlkb.rest.controller" />
 	<!-- To enable @RequestMapping process on type level and method level -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -46,8 +46,8 @@
 	<bean id="jaxbMarshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
 		<property name="classesToBeBound">
 			<list>
-				<value>dw.spring3.rest.bean.Employee</value>
-				<value>dw.spring3.rest.bean.EmployeeList</value>
+				<value>ricordo.owlkb.rest.bean.Employee</value>
+				<value>ricordo.owlkb.rest.bean.EmployeeList</value>
 			</list>
 		</property>
 	</bean>
@@ -101,7 +101,7 @@
 	
 	<!--bean id="viewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver" /-->
 
-	<bean id="employeeController" class="dw.spring3.rest.controller.EmployeeController">
+	<bean id="employeeController" class="ricordo.owlkb.rest.controller.EmployeeController">
 		<property name="employeeDS" ref="employeeDS" />
 		<property name="jaxb2Mashaller" ref="jaxbMarshaller" />
 	</bean>

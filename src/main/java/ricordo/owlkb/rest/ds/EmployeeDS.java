@@ -1,6 +1,6 @@
-package dw.spring3.rest.ds;
+package ricordo.owlkb.rest.ds;
 
-import dw.spring3.rest.bean.Employee;
+import ricordo.owlkb.rest.bean.Employee;
 
 import java.util.ArrayList;
 import java.util.HashMap;

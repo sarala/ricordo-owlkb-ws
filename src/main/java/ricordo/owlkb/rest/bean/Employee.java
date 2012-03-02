@@ -1,4 +1,4 @@
-package dw.spring3.rest.bean;
+package ricordo.owlkb.rest.bean;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

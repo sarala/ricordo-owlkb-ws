@@ -1,4 +1,4 @@
-package dw.spring3.rest.util;
+package ricordo.owlkb.rest.util;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import com.sun.syndication.feed.atom.Content;
 import com.sun.syndication.feed.atom.Entry;
 import com.sun.syndication.feed.atom.Feed;
 
-import dw.spring3.rest.bean.Employee;
+import ricordo.owlkb.rest.bean.Employee;
 
 public class AtomUtil {
 

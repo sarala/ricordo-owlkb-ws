@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>Dw.spring3.rest</artifactId>
+    <artifactId>ricordo-owlkb-ws</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 

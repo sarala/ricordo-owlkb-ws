@@ -1,11 +1,8 @@
-package dw.spring3.rest.controller;
+package ricordo.owlkb.rest.controller;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.StringReader;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 
@@ -20,10 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sun.syndication.feed.atom.Feed;
 
-import dw.spring3.rest.bean.Employee;
-import dw.spring3.rest.bean.EmployeeList;
-import dw.spring3.rest.ds.EmployeeDS;
-import dw.spring3.rest.util.AtomUtil;
+import ricordo.owlkb.rest.bean.Employee;
+import ricordo.owlkb.rest.bean.EmployeeList;
+import ricordo.owlkb.rest.ds.EmployeeDS;
+import ricordo.owlkb.rest.util.AtomUtil;
 
 @Controller
 public class EmployeeController {
