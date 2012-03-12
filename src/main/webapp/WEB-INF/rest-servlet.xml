@@ -48,6 +48,8 @@
 			<list>
 				<value>ricordo.owlkb.rest.bean.Employee</value>
 				<value>ricordo.owlkb.rest.bean.EmployeeList</value>
+				<value>ricordo.owlkb.rest.bean.Term</value>
+				<value>ricordo.owlkb.rest.bean.TermList</value>
 			</list>
 		</property>
 	</bean>
@@ -55,6 +57,11 @@
 	<bean id="employees" class="org.springframework.web.servlet.view.xml.MarshallingView">
 		<constructor-arg ref="jaxbMarshaller" />
 	</bean>
+
+    <bean id="terms" class="org.springframework.web.servlet.view.xml.MarshallingView">
+        <constructor-arg ref="jaxbMarshaller" />
+    </bean>
+
 
 <!--	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
 		<property name="mediaTypes">
@@ -81,6 +88,7 @@
           <entry key="atom" value="application/atom+xml"/>
           <entry key="html" value="text/html"/>
           <entry key="json" value="application/json"/>
+          <entry key="xml" value="application/xml"/>
         </map>
       </property>
       <property name="viewResolvers">
@@ -105,4 +113,9 @@
 		<property name="employeeDS" ref="employeeDS" />
 		<property name="jaxb2Mashaller" ref="jaxbMarshaller" />
 	</bean>
+
+    <bean id="termController" class="ricordo.owlkb.rest.controller.TermController">
+        <property name="owlKbService" ref="owlKbService" />
+        <property name="jaxb2Mashaller" ref="jaxbMarshaller" />
+    </bean>
 </beans>

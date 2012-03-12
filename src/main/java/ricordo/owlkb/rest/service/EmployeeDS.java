@@ -1,4 +1,4 @@
-package ricordo.owlkb.rest.ds;
+package ricordo.owlkb.rest.service;
 
 import ricordo.owlkb.rest.bean.Employee;
 

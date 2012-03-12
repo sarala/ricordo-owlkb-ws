@@ -19,7 +19,7 @@ import com.sun.syndication.feed.atom.Feed;
 
 import ricordo.owlkb.rest.bean.Employee;
 import ricordo.owlkb.rest.bean.EmployeeList;
-import ricordo.owlkb.rest.ds.EmployeeDS;
+import ricordo.owlkb.rest.service.EmployeeDS;
 import ricordo.owlkb.rest.util.AtomUtil;
 
 @Controller
