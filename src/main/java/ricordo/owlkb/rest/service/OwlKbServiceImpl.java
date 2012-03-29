@@ -21,10 +21,9 @@ import java.util.Set;
 
 /**
  * Created by IntelliJ IDEA.
- * User: sarala
+ * User: Sarala Wimalaratne
  * Date: 02/03/12
  * Time: 14:22
- * To change this template use File | Settings | File Templates.
  */
 public class OwlKbServiceImpl implements OwlKbService {
     private IRI docIRI;
@@ -47,12 +46,21 @@ public class OwlKbServiceImpl implements OwlKbService {
         createKB();
     }
 
+    /**
+     * start pellet server
+     * @param serverPort
+     */
     private void startPelletServer(String serverPort){
         PelletServerFactory pellet = new PelletServerFactory();
         server = pellet.createServer(Integer.parseInt(serverPort));
         server.run();
     }
 
+    /**
+     * setting up reasoner
+     * @param serverUrl
+     * @param serverPort
+     */
     private void setUpReasoner(String serverUrl, String serverPort){
         OWLlinkHTTPXMLReasonerFactory factory = new OWLlinkHTTPXMLReasonerFactory();
         try{
@@ -78,6 +86,9 @@ public class OwlKbServiceImpl implements OwlKbService {
     }
     */
 
+    /**
+     *  Creating the knowledgebase and loading the ontologies from the owl document
+     */
     private void createKB(){
         try {
             CreateKB createKBRequest = new CreateKB(kbIRI);
@@ -88,6 +99,11 @@ public class OwlKbServiceImpl implements OwlKbService {
         }
     }
 
+    /**
+     * Calls to the knowledge base
+     * @param request
+     * @return response
+     */
     private Response executeReasoner(Request request){
         Response response = null;
         try{
@@ -98,12 +114,21 @@ public class OwlKbServiceImpl implements OwlKbService {
         return response;
     }
 
-
+    /**
+     * Queries for all subclasses
+     * @param query following Manchester Query Syntax
+     * @return list of terms
+     */
     public ArrayList<Term> getSubTerms(String query) {
         OWLClassExpression exp = queryConstructorService.runManchesterQuery(query);
         return getSubTerms(exp);
     }
 
+    /**
+     * Queries for all subclasses
+     * @param exp Owl class expression constructed from the manchester query
+     * @return list of terms
+     */
     private ArrayList<Term> getSubTerms(OWLClassExpression exp) {
         ArrayList<Term> idList = new ArrayList<Term>();
         if(exp!=null){
@@ -118,12 +143,21 @@ public class OwlKbServiceImpl implements OwlKbService {
     }
 
 
-
+    /**
+     * Queries for all equivalent classes
+     * @param query following Manchester Query Syntax
+     * @return list of terms
+     */
     public ArrayList<Term> getEquivalentTerms(String query){
         OWLClassExpression exp = queryConstructorService.runManchesterQuery(query);
         return getEquivalentTerms(exp);
     }
 
+    /**
+     * Queries for all equivalent
+     * @param exp Owl class expression constructed from the manchester query
+     * @return list of terms
+     */
     private ArrayList<Term> getEquivalentTerms(OWLClassExpression exp){
         ArrayList<Term> idList = new ArrayList<Term>();
         if(exp!=null){
@@ -137,6 +171,11 @@ public class OwlKbServiceImpl implements OwlKbService {
         return idList;
     }
 
+    /**
+     * Queries for all subclasses and equivalent classes
+     * @param query following Manchester Query Syntax
+     * @return list of terms
+     */
     public ArrayList<Term> getTerms(String query) {
         ArrayList<Term> idList = new ArrayList<Term>();
         OWLClassExpression exp = queryConstructorService.runManchesterQuery(query);
@@ -145,6 +184,11 @@ public class OwlKbServiceImpl implements OwlKbService {
         return idList;
     }
 
+    /**
+     * Add a new term into the knowledge base using Manchester Query Syntax if the term does not exist
+     * @param query following Manchester Query Syntax
+     * @return
+     */
     public ArrayList<Term> addTerm(String query) {
         OWLClassExpression exp = queryConstructorService.runManchesterQuery(query);
         ArrayList<Term> idList = getEquivalentTerms(exp);
@@ -167,7 +211,12 @@ public class OwlKbServiceImpl implements OwlKbService {
         return idList;
     }
 
-    @Override
+    /**
+     * Delete axioms from the knowledge base using Manchester Query Syntax
+     * @param query following Manchester Query Syntax
+     * @return
+     */
+
     public ArrayList<Term> deleteTerm(String query) {
         OWLClassExpression exp = queryConstructorService.runManchesterQuery(query);
         ArrayList<Term> idList = getEquivalentTerms(exp);
@@ -183,7 +232,6 @@ public class OwlKbServiceImpl implements OwlKbService {
             }
             RetractRequest retractRequest = new RetractRequest(kbIRI, owlAxiomSet);
             OK okResponse = (OK)executeReasoner(retractRequest);
-            /*OWLEntityRemover remover = new OWLEntityRemover(owlOntologyManager, Collections.singleton(ont));*/
 
             queryConstructorService.deleteAxioms(owlAxiomSet);
             idList.clear();

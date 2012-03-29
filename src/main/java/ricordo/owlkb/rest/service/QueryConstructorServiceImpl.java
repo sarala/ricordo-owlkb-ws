@@ -36,7 +36,11 @@ public class QueryConstructorServiceImpl implements QueryConstructorService{
         }
     }
 
-    @Override
+    /**
+     * Run a query constructed in manchester query syntax to create an OWL class expression
+     * @param manchesterQuery
+     * @return OWLClassExpression
+     */
     public OWLClassExpression runManchesterQuery(String manchesterQuery){
         ManchesterOWLSyntaxEditorParser parser = new ManchesterOWLSyntaxEditorParser(owlOntologyManager.getOWLDataFactory(), manchesterQuery);
         parser.setDefaultOntology(queryOntology);
@@ -55,7 +59,10 @@ public class QueryConstructorServiceImpl implements QueryConstructorService{
         return classExp;
     }
 
-    @Override
+    /**
+     * Add axioms to a OWL file
+     * @param axiomSet
+     */
     public void addAxioms(Set<OWLAxiom> axiomSet) {
         owlOntologyManager.addAxioms(queryOntology, axiomSet);
         try {
@@ -65,7 +72,10 @@ public class QueryConstructorServiceImpl implements QueryConstructorService{
         }
     }
 
-    @Override
+    /**
+     * Delete axioms from a OWL file
+     * @param axiomSet
+     */
     public void deleteAxioms(Set<OWLAxiom> axiomSet) {
         owlOntologyManager.removeAxioms(queryOntology, axiomSet);
         try {

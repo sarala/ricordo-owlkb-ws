@@ -6,11 +6,11 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * User: sarala
+ * User: Sarala Wimalaratne
  * Date: 02/03/12
  * Time: 04:36
- * To change this template use File | Settings | File Templates.
  */
+
 @XmlRootElement(name="terms")
 public class TermList {
 

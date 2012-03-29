@@ -1,1 +1,20 @@
-mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version> -Dpackaging=<packaging>
+====Using the deployable war file====
+1)Download the ricordo-owlkb-ws.war file from the deploy directory
+
+2)Inside the war file there is a config.properties file.
+Edit this file by changing kb.file to where you have the owlfile you want to add to the knowledge base.
+There is an example owlfile in resource folder
+kb.file=/home/sarala/IdeaProjects/ricordo/ricordo-owlkb-ws/resources/ricordo-test-kb.owl
+
+3)Deploy the changed war file into tomcat
+
+4)Open a web browser and start using the web services
+
+Eg- query RICORDO_2 and part-of some RICORDO_21
+http://localhost:8080/ricordo-owlkb-ws/service/terms/RICORDO_2 and part-of some RICORDO_21
+
+jason output
+http://localhost:8080/ricordo-owlkb-ws/service/terms/RICORDO_2 and part-of some RICORDO_21.json
+
+xml output
+http://localhost:8080/ricordo-owlkb-ws/service/terms/RICORDO_2 and part-of some RICORDO_21.xml

@@ -3,14 +3,12 @@ package ricordo.owlkb.rest.service;
 import ricordo.owlkb.rest.bean.Term;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * User: sarala
+ * User: Sarala Wimalaratne
  * Date: 13/03/12
  * Time: 21:39
- * To change this template use File | Settings | File Templates.
  */
 public interface OwlKbService {
     public ArrayList<Term> getSubTerms(String query);
