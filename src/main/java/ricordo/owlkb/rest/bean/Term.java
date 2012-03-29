@@ -4,10 +4,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Created by IntelliJ IDEA.
- * User: sarala
+ * User: Sarala Wimalaratne
  * Date: 02/03/12
  * Time: 04:34
- * To change this template use File | Settings | File Templates.
  */
 @XmlRootElement
 public class Term {

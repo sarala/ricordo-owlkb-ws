@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import ricordo.owlkb.rest.bean.Employee;
+import ricordo.owlkb.rest.bean.EmployeeList;
 import ricordo.owlkb.rest.bean.Term;
 import ricordo.owlkb.rest.bean.TermList;
 import ricordo.owlkb.rest.service.OwlKbService;
+import ricordo.owlkb.rest.service.OwlKbServiceImpl;
 
 import java.util.List;
 
@@ -24,47 +27,9 @@ public class TermController {
     private OwlKbService owlKbService;
     private Jaxb2Marshaller jaxb2Mashaller;
 
-    public void setOwlKbService(OwlKbService service) {
-        this.owlKbService = service;
-    }
-
-    public void setJaxb2Mashaller(Jaxb2Marshaller jaxb2Mashaller) {
-        this.jaxb2Mashaller = jaxb2Mashaller;
-    }
-
     private static final String XML_VIEW_NAME = "terms";
 
- /*   @RequestMapping(method= RequestMethod.GET, value="/employee/{id}")
-    public ModelAndView getEmployee(@PathVariable String id) {
-        Term e = employeeDS.get(Long.parseLong(id));
-        return new ModelAndView(XML_VIEW_NAME, "object", e);
-    }
-
-    @RequestMapping(method=RequestMethod.PUT, value="/employee/{id}")
-    public ModelAndView updateEmployee(@RequestBody String body) {
-        Source source = new StreamSource(new StringReader(body));
-        Employee e = (Employee) jaxb2Mashaller.unmarshal(source);
-        employeeDS.update(e);
-        return new ModelAndView(XML_VIEW_NAME, "object", e);
-    }
-
-    @RequestMapping(method=RequestMethod.POST, value="/employee")
-    public ModelAndView addEmployee(@RequestBody String body) {
-        Source source = new StreamSource(new StringReader(body));
-        Employee e = (Employee) jaxb2Mashaller.unmarshal(source);
-        employeeDS.add(e);
-        return new ModelAndView(XML_VIEW_NAME, "object", e);
-    }
-
-    @RequestMapping(method=RequestMethod.DELETE, value="/employee/{id}")
-    public ModelAndView removeEmployee(@PathVariable String id) {
-        employeeDS.remove(Long.parseLong(id));
-        List<Employee> employees = employeeDS.getAll();
-        EmployeeList list = new EmployeeList(employees);
-        return new ModelAndView(XML_VIEW_NAME, "employees", list);
-    }
-*/
-    @RequestMapping(method=RequestMethod.GET, value="/terms/{query}")
+     @RequestMapping(method=RequestMethod.GET, value="/terms/{query}")
     public ModelAndView getTerms(@PathVariable String query) {
         List<Term> employees = owlKbService.getTerms(query);
         TermList list = new TermList(employees);
@@ -87,10 +52,24 @@ public class TermController {
 
     @RequestMapping(method=RequestMethod.POST, value="/addterm/{query}")
     public ModelAndView addTerm(@PathVariable String query) {
-        System.out.println("addTerm method: "+query);
         List<Term> terms = owlKbService.addTerm(query);
         TermList list = new TermList(terms);
         return new ModelAndView(XML_VIEW_NAME, "terms", list);
+    }
+
+    @RequestMapping(method=RequestMethod.DELETE, value="/deleteterm/{query}")
+    public ModelAndView removeEmployee(@PathVariable String query) {
+        List<Term> terms = owlKbService.deleteTerm(query);
+        TermList list = new TermList(terms);
+        return new ModelAndView(XML_VIEW_NAME, "terms", list);
+    }
+
+    public void setOwlKbService(OwlKbService service) {
+        this.owlKbService = service;
+    }
+
+    public void setJaxb2Mashaller(Jaxb2Marshaller jaxb2Mashaller) {
+        this.jaxb2Mashaller = jaxb2Mashaller;
     }
 
 }

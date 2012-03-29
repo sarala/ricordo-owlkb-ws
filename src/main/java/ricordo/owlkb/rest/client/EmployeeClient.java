@@ -104,7 +104,8 @@ public class EmployeeClient {
 	}
 	
 	private static RestTemplate getTemplate() {
-		ApplicationContext ctx = new FileSystemXmlApplicationContext(
+
+        ApplicationContext ctx = new FileSystemXmlApplicationContext(
 			"src/main/webapp/WEB-INF/rest-servlet.xml", "src/main/webapp/WEB-INF/rest-context.xml");
 		RestTemplate template = (RestTemplate) ctx.getBean("restTemplate");
 		return template;

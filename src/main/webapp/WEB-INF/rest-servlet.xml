@@ -103,6 +103,7 @@
       <property name="defaultViews">
         <list>
           <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView" />
+
         </list>
       </property>
     </bean>
@@ -115,7 +116,7 @@
 	</bean>
 
     <bean id="termController" class="ricordo.owlkb.rest.controller.TermController">
-        <property name="owlKbService" ref="owlKbService" />
+        <property name="owlKbService" ref="owlKbServiceImpl" />
         <property name="jaxb2Mashaller" ref="jaxbMarshaller" />
     </bean>
 </beans>

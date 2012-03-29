@@ -21,6 +21,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-web:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-oxm:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.5" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:3.1.1.RELEASE" />
           <element id="library" level="project" name="Maven: javax.xml.bind:jaxb-api:2.1" />
           <element id="library" level="project" name="Maven: javax.xml.stream:stax-api:1.0-2" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />

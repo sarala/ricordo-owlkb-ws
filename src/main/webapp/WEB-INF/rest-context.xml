@@ -17,11 +17,24 @@
         </property>
     </bean>
     
-    <bean id="owlKbService" class="ricordo.owlkb.rest.service.OwlKbService">
-        <property name="serverPort" value="${owllink.server.port}"/>
-        <property name="serverUrl" value="${owllink.server.url}"/>
-        <property name="kbNs" value="${kb.ns}"/>
-        <property name="docIRI" value="${kb.file}"/>
+    <bean id="queryConstructorServiceImpl" class="ricordo.owlkb.rest.service.QueryConstructorServiceImpl">
+        <constructor-arg name="docIRI" ref="docIRI"/>
+        <constructor-arg ref="owlManager"/>
     </bean>
 
+    <bean id="owlKbServiceImpl" class="ricordo.owlkb.rest.service.OwlKbServiceImpl">
+        <constructor-arg name="serverPort" value="${owllink.server.port}"/>
+        <constructor-arg name="serverUrl" value="${owllink.server.url}"/>
+        <constructor-arg name="kbNs" value="${kb.ns}"/>
+        <constructor-arg name="docIRI" ref="docIRI"/>
+        <constructor-arg name="owlOntologyManager" ref="owlManager"/>
+        <constructor-arg name="queryConstructorService" ref="queryConstructorServiceImpl"/>
+    </bean>
+
+    <bean id="owlManager" class="org.semanticweb.owlapi.apibinding.OWLManager" factory-method="createOWLOntologyManager"/>
+
+    <bean id="docIRI" class="org.semanticweb.owlapi.model.IRI" factory-method="create">
+        <constructor-arg name="file" value="${kb.file}" type="java.io.File" />
+    </bean>
+    
 </beans>
