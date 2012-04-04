@@ -185,7 +185,7 @@ public class OwlKbServiceImpl implements OwlKbService {
     }
 
     /**
-     * Add a new term into the knowledge base using Manchester Query Syntax if the term does not exist
+     * Add a new term into the knowledge base using Manchester Query Syntax if the term does not exist otherwise return equivalent terms
      * @param query following Manchester Query Syntax
      * @return
      */
@@ -212,7 +212,9 @@ public class OwlKbServiceImpl implements OwlKbService {
     }
 
     /**
-     * Delete axioms from the knowledge base using Manchester Query Syntax
+     * Delete axioms from the knowledge base using Manchester Query Syntax.
+     * Deletion only happens if the class expression created by this query is anonymous and an empty list is returned.
+     * Otherwise equivalent terms are returned.
      * @param query following Manchester Query Syntax
      * @return
      */
@@ -238,4 +240,5 @@ public class OwlKbServiceImpl implements OwlKbService {
         }
         return idList;
     }
+
 }
