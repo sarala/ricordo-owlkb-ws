@@ -50,6 +50,5 @@ ps ax|grep java
 To kill the process which uses port 8081:
 kill -9 processid
 
-testing git
 
 
