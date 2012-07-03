@@ -4,13 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>groupId</groupId>
-    <artifactId>ricordo-owlkb-ws</artifactId>
+    <groupId>uk.ac.ebi.ricordo</groupId>
+    <artifactId>owlkb-ws</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <build>
-        <finalName>ricordo-owlkb-ws</finalName>
+        <finalName>uk.ac.ebi.ricordo-owlkb-ws</finalName>
     </build>
 
     <repositories>
@@ -318,5 +318,13 @@
             <artifactId>owlapi-bin</artifactId>
             <version>3.1</version>
         </dependency>
+
+
+        <dependency>
+            <groupId>uk.ac.ebi.ricordo</groupId>
+            <artifactId>owlkb</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 </project>

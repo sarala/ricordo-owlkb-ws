@@ -1,13 +1,30 @@
-package ricordo.owlkb.rest.controller;
+
+/*
+ * Copyright 2012 EMBL-EBI
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package uk.ac.ebi.ricordo.owlkb.rest.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import ricordo.owlkb.rest.bean.Term;
-import ricordo.owlkb.rest.bean.TermList;
-import ricordo.owlkb.rest.service.OwlKbService;
+import uk.ac.ebi.ricordo.owlkb.bean.Term;
+import uk.ac.ebi.ricordo.owlkb.bean.TermList;
+import uk.ac.ebi.ricordo.owlkb.service.OwlKbService;
 
 import java.util.List;
 
@@ -26,22 +43,22 @@ public class TermController {
 
     @RequestMapping(method=RequestMethod.GET, value="/terms/{query}")
     public ModelAndView getTerms(@PathVariable String query) {
-        List<Term> employees = owlKbService.getTerms(query);
-        TermList list = new TermList(employees);
+        List<Term> termList = owlKbService.getTerms(query);
+        TermList list = new TermList(termList);
         return new ModelAndView(XML_VIEW_NAME, "terms", list);
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/subterms/{query}")
     public ModelAndView getSubTerms(@PathVariable String query) {
-        List<Term> employees = owlKbService.getSubTerms(query);
-        TermList list = new TermList(employees);
+        List<Term> termList = owlKbService.getSubTerms(query);
+        TermList list = new TermList(termList);
         return new ModelAndView(XML_VIEW_NAME, "terms", list);
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/eqterms/{query}")
     public ModelAndView getEqTerms(@PathVariable String query) {
-        List<Term> employees = owlKbService.getEquivalentTerms(query);
-        TermList list = new TermList(employees);
+        List<Term> termList = owlKbService.getEquivalentTerms(query);
+        TermList list = new TermList(termList);
         return new ModelAndView(XML_VIEW_NAME, "terms", list);
     }
 

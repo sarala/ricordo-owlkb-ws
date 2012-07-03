@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 	id="WebApp_ID" version="2.5">
 	
-	<display-name>ricordo.owlkb.rest</display-name>
+	<display-name>uk.ac.ebi.ricordo.owlkb.rest</display-name>
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

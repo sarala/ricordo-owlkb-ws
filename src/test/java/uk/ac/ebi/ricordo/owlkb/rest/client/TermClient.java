@@ -1,16 +1,16 @@
-package ricordo.owlkb.rest.client;
+package uk.ac.ebi.ricordo.owlkb.rest.client;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.http.*;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.web.client.RestTemplate;
-import ricordo.owlkb.rest.bean.Term;
-import ricordo.owlkb.rest.bean.TermList;
+import uk.ac.ebi.ricordo.owlkb.bean.TermList;
 
 import static junit.framework.Assert.assertEquals;
 
