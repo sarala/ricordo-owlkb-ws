@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="ricordo-owlkb-ws:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="ricordo-owlkb-ws.war">
+    <root id="archive" name="uk.ac.ebi.ricordo-owlkb-ws.war">
       <element id="artifact" artifact-name="ricordo-owlkb-ws:war exploded" />
     </root>
   </artifact>

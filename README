@@ -29,9 +29,14 @@ http://localhost:8080/ricordo-owlkb-ws/service/terms/RICORDO_2 and part-of some 
 xml output
 http://localhost:8080/ricordo-owlkb-ws/service/terms/RICORDO_2 and part-of some RICORDO_21.xml
 
+5) Stop services - this will shut down the kb knowledge base server
+http://localhost:8080/ricordo-owlkb-ws/service/stopService
+
 ====Quick Note====
 
-*   Closing ports
+If the server is not shutdown properly, open ports will need to be closed manually.
+
+Closing ports
 
 Windows
 To list ports:

@@ -19,7 +19,7 @@
     </tr></thead>
     <c:forEach var="query" items="${queries.queries}">
         <tr>
-            <td>${query}</td>
+            <td>${query.query}</td>
         </tr>
     </c:forEach>
 </table>

@@ -117,4 +117,8 @@
     <bean id="serviceController" class="uk.ac.ebi.ricordo.owlkb.rest.controller.ServiceController">
         <property name="owlKbService" ref="owlLinkKBService" />
     </bean>
+
+    <bean id="relationsController" class="uk.ac.ebi.ricordo.owlkb.rest.controller.RelationsController">
+        <property name="relationsService" ref="relationsServiceImpl"/>
+    </bean>
 </beans>
