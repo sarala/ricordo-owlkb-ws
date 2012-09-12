@@ -6,7 +6,7 @@
 
     <groupId>uk.ac.ebi.ricordo</groupId>
     <artifactId>owlkb-ws</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>war</packaging>
 
     <build>
@@ -145,7 +145,7 @@
         <dependency>
             <groupId>uk.ac.ebi.ricordo</groupId>
             <artifactId>owlkb</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0</version>
         </dependency>
 
     </dependencies>
